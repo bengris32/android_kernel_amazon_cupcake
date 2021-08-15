@@ -1,0 +1,196 @@
+/*
+ * arch/arm64/boot/dts/mediatek/cupcake_thermal_zones.dtsi
+ *
+ * Copyright (C) 2018 Amazon, Inc. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+*/
+
+/ {
+	thermal-zones {
+		skin_virtual {
+			polling-delay = <1000>;
+			polling-delay-passive = <1000>;
+			policy = "step_wise";
+
+			thermal-sensors = <&skin_virtual_sensor>;
+
+			/* svt is short for skin_virtual_thermal */
+			trips {
+				svt_trip: trip-point@0 {
+					temperature = <56000>;
+					hysteresis = <500>;
+					type = "passive";
+				};
+				svt_trip1: trip-point@1 {
+					temperature = <57000>;
+					hysteresis = <500>;
+					type = "passive";
+				};
+				svt_trip2: trip-point@2 {
+					temperature = <58000>;
+					hysteresis = <500>;
+					type = "passive";
+				};
+				svt_trip3: trip-point@3 {
+					temperature = <59000>;
+					hysteresis = <500>;
+					type = "passive";
+				};
+				svt_trip_critical1: trip-point@4 {
+					temperature = <60000>;
+					hysteresis = <500>;
+					type = "critical";
+				};
+			}; /* trips */
+
+			cooling-maps {
+				cpufreq_cooling_map0 {
+					trip = <&svt_trip>;
+					cooling-device = <&cpu0 0 0>; /* min cooling state, max cooling state in this map */
+					contribution = <1024>;
+				};
+				cpufreq_cooling_map1 {
+					trip = <&svt_trip1>;
+					cooling-device = <&cpu0 0 1>;
+					contribution = <1024>;
+				};
+				cpufreq_cooling_map2 {
+					trip = <&svt_trip2>;
+					cooling-device = <&cpu0 1 2>;
+					contribution = <1024>;
+				};
+				cpufreq_cooling_map3 {
+					trip = <&svt_trip3>;
+					cooling-device = <&cpu0 2 3>;
+					contribution = <1024>;
+				};
+			}; /* cooling maps */
+		}; /* skin_virtual */
+
+		case_virtual {
+			polling-delay = <1000>;
+			polling-delay-passive = <1000>;
+			policy = "step_wise";
+
+			thermal-sensors = <&case_virtual_sensor>;
+
+			/* cvt is short for case_virtual_thermal */
+			trips {
+				cvt_trip: trip-point@0 {
+					temperature = <56000>;
+					hysteresis = <500>;
+					type = "passive";
+				};
+				cvt_trip1: trip-point@1 {
+					temperature = <57000>;
+					hysteresis = <500>;
+					type = "passive";
+				};
+				cvt_trip2: trip-point@2 {
+					temperature = <58000>;
+					hysteresis = <500>;
+					type = "passive";
+				};
+				cvt_trip3: trip-point@3 {
+					temperature = <59000>;
+					hysteresis = <500>;
+					type = "passive";
+				};
+				cvt_trip_critical1: trip-point@4 {
+					temperature = <60000>;
+					hysteresis = <500>;
+					type = "critical";
+				};
+			}; /* trips */
+
+			cooling-maps {
+				cpufreq_cooling_map0 {
+					trip = <&cvt_trip>;
+					cooling-device = <&cpu0 0 0>; /* min cooling state, max cooling state in this map */
+					contribution = <1024>;
+				};
+				cpufreq_cooling_map1 {
+					trip = <&cvt_trip1>;
+					cooling-device = <&cpu0 0 1>;
+					contribution = <1024>;
+				};
+				cpufreq_cooling_map2 {
+					trip = <&cvt_trip2>;
+					cooling-device = <&cpu0 1 2>;
+					contribution = <1024>;
+				};
+				cpufreq_cooling_map3 {
+					trip = <&cvt_trip3>;
+					cooling-device = <&cpu0 2 3>;
+					contribution = <1024>;
+				};
+			}; /* cooling maps */
+		}; /* case_virtual */
+
+		wifi_temp {
+			polling-delay = <0>;
+			polling-delay-passive = <0>;
+			policy = "step_wise";
+
+			thermal-sensors = <&wifi_temp_sensor>;
+		}; /* wifi_temp_sensor */
+
+		therm0_s {
+			polling-delay = <0>;
+			polling-delay-passive = <0>;
+			policy = "step_wise";
+
+			thermal-sensors = <&therm0>;
+		}; /* therm0_sensor */
+
+		therm1_s {
+			polling-delay = <0>;
+			polling-delay-passive = <0>;
+			policy = "step_wise";
+
+			thermal-sensors = <&therm1>;
+		}; /* therm1_sensor */
+
+		therm2_s {
+			polling-delay = <0>;
+			polling-delay-passive = <0>;
+			policy = "step_wise";
+
+			thermal-sensors = <&therm2>;
+		}; /* therm2_sensor */
+
+		tmp108_i2c2_49_s: tmp108_i2c2_49_s {
+			polling-delay = <0>;
+			polling-delay-passive = <0>;
+			policy = "step_wise";
+
+			thermal-sensors = <&tmp108_i2c2_49>;
+		};
+
+		tmp108_i2c2_4a_s: tmp108_i2c2_4a_s {
+			polling-delay = <0>;
+			polling-delay-passive = <0>;
+			policy = "step_wise";
+
+			thermal-sensors = <&tmp108_i2c2_4a>;
+		};
+
+		tmp108_i2c2_4b_s: tmp108_i2c2_4b_s {
+			polling-delay = <0>;
+			polling-delay-passive = <0>;
+			policy = "step_wise";
+
+			thermal-sensors = <&tmp108_i2c2_4b>;
+		};
+	};
+};

@@ -1,0 +1,12 @@
+config MTK_OPTICAL_INPUT
+	tristate "abc123/abc123 Optical Input Detction Driver"
+	---help---
+
+	  Optical input detction driver support for
+	  abc123/abc123 with MTK SOC
+
+	  If you want to use abc123/abc123 optical input
+	  detection driver,
+	  say Y or M here.
+
+	  If unsure, say N.

@@ -1,0 +1,38 @@
+menu "Amazon"
+
+config AMAZON
+       bool "Amazon Drivers"
+       ---help---
+         Enable support for various drivers needed
+         on the Amazon Fire OS platform. CONFIG_AMAZON
+         is required to obtain the reboot life cycle
+         reasons for MTK platform.
+
+if AMAZON
+
+config AMAZON_LIFE_CYCLE_REASONS
+       bool "Amazon Life Cycle Reasons"
+       ---help---
+         Enable the life cycle metrics to log device
+         boot and shutdown information.
+         CONFIG AMAZON has to be enabled for
+         AMAZON_LIFE_CYCLE_REASONS.
+
+config AMAZON_A2DP_TS
+	bool "Gather and report A2DP timestamps"
+	help
+	Enable A2DP timestamps reporting to user space
+
+choice
+	prompt "A2DP timestamps"
+	depends on AMAZON_A2DP_TS
+	default AMAZON_A2DP_TS_SDIO
+
+config AMAZON_A2DP_TS_SDIO
+	bool "A2DP timestamps are gathered when we trigger SDIO transfer"
+
+endchoice
+
+endif # if AMAZON
+
+endmenu

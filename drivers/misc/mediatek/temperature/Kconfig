@@ -1,0 +1,7 @@
+
+config CUSTOM_KERNEL_TEMPERATURE
+	bool "CONFIG_CUSTOM_KERNEL_TEMPERATURE"
+	help
+	  To detect temperature raw data
+
+source "drivers/misc/mediatek/temperature/virtualts/Kconfig"

@@ -1,0 +1,33 @@
+/*
+ * Copyright (C) 2018 Amazon.com
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ */
+/dts-v1/;
+
+#include "cupcake.dtsi"
+
+/ {
+	model = "Amazon Cupcake DVT";
+	compatible = "amzn,cupcake-pvt", "amzn,cupcake-dvt", "amzn,cupcake";
+
+	gpio-privacy {
+		state-gpios = <&pio 21 GPIO_ACTIVE_HIGH>;
+	};
+};
+
+/delete-node/ &tmp108_i2c2_49_s;
+/delete-node/ &tmp108_i2c2_4a_s;
+/delete-node/ &tmp108_i2c2_4b_s;
+
+/delete-node/ &tmp108_i2c2_49;
+/delete-node/ &tmp108_i2c2_4a;
+/delete-node/ &tmp108_i2c2_4b;

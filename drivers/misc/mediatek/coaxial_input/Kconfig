@@ -1,0 +1,12 @@
+config MTK_COAXIAL_INPUT
+	tristate "abc123/abc123 Coaxial Input Detction Driver"
+	---help---
+
+	  Coaxial input detction driver support for
+	  abc123/abc123 with MTK SOC
+
+	  If you want to use abc123/abc123 coaxial input
+	  detection driver,
+	  say Y or M here.
+
+	  If unsure, say N.
